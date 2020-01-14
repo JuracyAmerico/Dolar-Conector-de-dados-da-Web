@@ -16,7 +16,7 @@
         var cols = [
             {id:"cotacaoCompra", alias: "cotacaoCompra", dataType: tableau.dataTypeEnum.float},
             {id:"cotacaoVenda", alias: "cotacaoVenda", dataType: tableau.dataTypeEnum.float},
-            {id:"dataHoraCotacao", alias: "dataHoraCotacao", dataType: tableau.dataTypeEnum.datetime}
+            {id:"dataHoraCotacao", alias: "dataHoraCotacao", dataType: tableau.dataTypeEnum.date}
         ];
 
         var tableSchema = {
