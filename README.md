@@ -3,4 +3,4 @@ Web data Conector ou conector de dados da Web para Dólar comercial (venda e com
 
 Aqui estamos utilizando o dola Ptax - média das taxas de negociações praticadas por instituições, o banco central faz uma média e disponibiliza este valor nesta API, que é oficial.
 
-Muitas empresas de exportação utiliza essa taxa para efetuar seus negocios
+Muitas empresas de exportação utilizam essa taxa para efetuar seus negocios
