@@ -8,9 +8,11 @@
 
 
 (function() {
-    // Criando o objeto da conexão
+    //1: *************************
+    // Criação do objeto da conexão
     var myConnector = tableau.makeConnector();
 
+    //2: *************************
     // Definição do esquema
     myConnector.getSchema = function(schemaCallback) {
         var cols = [
@@ -28,7 +30,8 @@
         schemaCallback([tableSchema]);
     };
 
-    // Download dos dados
+    //3: *************************
+    // Obtencão dos dados
     myConnector.getData = function(table, doneCallback) {
         var dateObj = JSON.parse(tableau.connectionData),
             dateString = "?@dataInicial='" + dateObj.dataInicial + "'&@dataFinalCotacao='" + dateObj.dataFinalCotacao, // teste do texto resultante da variavel dateString - ?@dataInicial=01-01-2000&@dataFinalCotacao=01-29-2000
@@ -53,9 +56,11 @@
     });
     };
 
+    //4: *************************    
     tableau.registerConnector(myConnector);
 
-    // Criação do evento que fica escutando quando o usuário submete o formulário
+    //5: *************************
+    // Criação do evento que fica escutando quando o usuário clica no botão da pagina HTML    
     $(document).ready(function() {
         $("#submitButton").click(function() {
             var dateObj = {
