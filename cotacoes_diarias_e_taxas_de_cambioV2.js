@@ -34,8 +34,8 @@
     // Obtencão dos dados
     myConnector.getData = function(table, doneCallback) {
         var dateObj = JSON.parse(tableau.connectionData),
-            dateString = "?@dataInicial='" + dateObj.dataInicial + "'&@dataFinalCotacao='" + dateObj.dataFinalCotacao, // teste do texto resultante da variavel dateString - ?@dataInicial=01-01-2000&@dataFinalCotacao=01-29-2000
-            chamarAPI = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)" + dateString + "'&$top=10000&$format=json&$select=cotacaoCompra,cotacaoVenda,dataHoraCotacao";
+            dateString = "'?@dataInicial='" + dateObj.dataInicial + "'&@dataFinalCotacao='" + dateObj.dataFinalCotacao, // teste do texto resultante da variavel dateString - ?@dataInicial=01-01-2000&@dataFinalCotacao=01-29-2000
+            chamarAPI = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)" + dateString + "'&$top=10000&$format=json&$select=cotacaoCompra,cotacaoVenda,dataHoraCotacao'";
             //chamarAPI = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial='01-01-2000'&@dataFinalCotacao='01-31-2000'&$top=10000&$format=json&$select=cotacaoCompra,cotacaoVenda,dataHoraCotacao"
             //ajudou a encontrar o erro --> alert(dateString)
 
@@ -76,10 +76,10 @@
 
             if (isValidDate(dateObj.dataInicial) && isValidDate(dateObj.dataFinalCotacao)) {
                 tableau.connectionData = JSON.stringify(dateObj); // Usa essa variavel para passar a data para as funções getSchema e getData
-                tableau.connectionName = "Dólar comercial (venda e compra) - cotações diárias e Taxas de Câmbio"; // Este texto vai ser o nome na fonte de dados no Tableau
+                tableau.connectionName = "Dólar comercial"; // Este texto vai ser o nome na fonte de dados no Tableau
                 tableau.submit(); // Este comando envia o objeto conexão criado no inicio para o Tableau
             } else {
-                $('#errorMsg').html("Digite uma data valida. Com por exemplo 01-31-2000 mm-dd-yyyy.");
+                $('#errorMsg').html("Digite uma data valida. Como por exemplo 01-31-2000 mm-dd-yyyy mês dia e ano");
             }
         });
     });
